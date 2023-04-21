@@ -1,0 +1,5 @@
+  File "/home/chase/project4/src/install/p4pkg/lib/python3.8/site-packages/p4pkg/world_reader.py", line 26
+    elif char == '#'
+                   ^
+SyntaxError: invalid syntax
+

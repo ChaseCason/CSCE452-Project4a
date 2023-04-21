@@ -5,6 +5,8 @@
 import yaml
 import os
 
+from nav_msgs.msg import OccupancyGrid
+
 dirname = os.path.dirname(__file__)
 
 def read_world(file_name):
@@ -13,9 +15,25 @@ def read_world(file_name):
     
     resolution = world['resolution'] #length of each side of block
     initial_pose = world['initial_pose'] #initial robot position in meters
-    world_map = world['map'] #
+    world_map = world['map']
     parsed_map = []
 
-    
+    for row in world_map.strip().split('\n'):
+        currRow = []
+        for gridElement in row.strip():
+            if gridElement == '.':
+                currRow.append(0)
+            elif gridElement == '#':
+                currRow.append(100)
+            else:
+                raise ValueError("Invalid character")
+        parsed_map.append(currRow)
 
-    return (resolution, initial_pose, world_map) 
+    msg = OccupancyGrid()
+    msg.header.frame_id = "map"
+    msg.info.width = len(parsed_map[0])
+    msg.info.height = len(parsed_map)
+    msg.info.resolution = resolution
+    msg.data = parsed_map
+
+    return (msg, initial_pose)

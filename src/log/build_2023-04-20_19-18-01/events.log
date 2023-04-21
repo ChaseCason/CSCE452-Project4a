@@ -1,0 +1,91 @@
+[0.000000] (-) TimerEvent: {}
+[0.000494] (p4pkg) JobQueued: {'identifier': 'p4pkg', 'dependencies': OrderedDict()}
+[0.000543] (p4pkg) JobStarted: {'identifier': 'p4pkg'}
+[0.081277] (-) TimerEvent: {}
+[0.196907] (-) TimerEvent: {}
+[0.329718] (-) TimerEvent: {}
+[0.468368] (-) TimerEvent: {}
+[0.606460] (-) TimerEvent: {}
+[0.707417] (-) TimerEvent: {}
+[0.835367] (-) TimerEvent: {}
+[0.940569] (-) TimerEvent: {}
+[1.067326] (-) TimerEvent: {}
+[1.184343] (-) TimerEvent: {}
+[1.305476] (-) TimerEvent: {}
+[1.407924] (-) TimerEvent: {}
+[1.527443] (-) TimerEvent: {}
+[1.667905] (-) TimerEvent: {}
+[1.806994] (-) TimerEvent: {}
+[1.931114] (-) TimerEvent: {}
+[2.056186] (-) TimerEvent: {}
+[2.156945] (-) TimerEvent: {}
+[2.303617] (-) TimerEvent: {}
+[2.406079] (-) TimerEvent: {}
+[2.517858] (-) TimerEvent: {}
+[2.623697] (-) TimerEvent: {}
+[2.739888] (-) TimerEvent: {}
+[2.855724] (-) TimerEvent: {}
+[2.956914] (-) TimerEvent: {}
+[3.068618] (-) TimerEvent: {}
+[3.169668] (-) TimerEvent: {}
+[3.284250] (-) TimerEvent: {}
+[3.387064] (-) TimerEvent: {}
+[3.487625] (-) TimerEvent: {}
+[3.588595] (-) TimerEvent: {}
+[3.708290] (-) TimerEvent: {}
+[3.809268] (-) TimerEvent: {}
+[3.921174] (-) TimerEvent: {}
+[4.021866] (-) TimerEvent: {}
+[4.128230] (-) TimerEvent: {}
+[4.235398] (-) TimerEvent: {}
+[4.359831] (-) TimerEvent: {}
+[4.477360] (-) TimerEvent: {}
+[4.512396] (p4pkg) Command: {'cmd': ['/usr/bin/python3', 'setup.py', 'egg_info', '--egg-base', '../build/p4pkg', 'build', '--build-base', '/home/chase/project4/src/build/p4pkg/build', 'install', '--record', '/home/chase/project4/src/build/p4pkg/install.log', '--single-version-externally-managed'], 'cwd': '/home/chase/project4/src/p4pkg', 'env': {'GJS_DEBUG_TOPICS': 'JS ERROR;JS LOG', 'LESSOPEN': '| /usr/bin/lesspipe %s', 'USER': 'chase', 'SSH_AGENT_PID': '1234', 'XDG_SESSION_TYPE': 'x11', 'SHLVL': '1', 'HOME': '/home/chase', 'OLDPWD': '/home/chase/project4/src/p4pkg', 'DESKTOP_SESSION': 'ubuntu', 'GNOME_SHELL_SESSION_MODE': 'ubuntu', 'GTK_MODULES': 'gail:atk-bridge', 'NIX_PROFILES': '/nix/var/nix/profiles/default /home/chase/.nix-profile', 'MANAGERPID': '1002', 'DBUS_SESSION_BUS_ADDRESS': 'unix:path=/run/user/1000/bus', 'COLORTERM': 'truecolor', 'IM_CONFIG_PHASE': '1', 'LOGNAME': 'chase', 'JOURNAL_STREAM': '8:29965', '_': '/usr/bin/colcon', 'XDG_SESSION_CLASS': 'user', 'USERNAME': 'chase', 'TERM': 'xterm-256color', 'GNOME_DESKTOP_SESSION_ID': 'this-is-deprecated', 'WINDOWPATH': '2', 'PATH': '/home/chase/.nix-profile/bin:/home/chase/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin', 'SESSION_MANAGER': 'local/chase-VirtualBox:@/tmp/.ICE-unix/1276,unix/chase-VirtualBox:/tmp/.ICE-unix/1276', 'INVOCATION_ID': '4421f03245de4d0091900f4bc684423f', 'XDG_MENU_PREFIX': 'gnome-', 'GNOME_TERMINAL_SCREEN': '/org/gnome/Terminal/screen/4e1f9e59_a598_4739_8a0d_556a324a185b', 'XDG_RUNTIME_DIR': '/run/user/1000', 'DISPLAY': ':0', 'LANG': 'en_US.UTF-8', 'XDG_CURRENT_DESKTOP': 'ubuntu:GNOME', 'XMODIFIERS': '@im=ibus', 'XDG_SESSION_DESKTOP': 'ubuntu', 'XAUTHORITY': '/run/user/1000/gdm/Xauthority', 'LS_COLORS': 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:', 'GNOME_TERMINAL_SERVICE': ':1.75', 'SSH_AUTH_SOCK': '/run/user/1000/keyring/ssh', 'SHELL': '/bin/bash', 'QT_ACCESSIBILITY': '1', 'GDMSESSION': 'ubuntu', 'LESSCLOSE': '/usr/bin/lesspipe %s %s', 'NIX_SSL_CERT_FILE': '/etc/ssl/certs/ca-certificates.crt', 'GPG_AGENT_INFO': '/run/user/1000/gnupg/S.gpg-agent:0:1', 'GJS_DEBUG_OUTPUT': 'stderr', 'QT_IM_MODULE': 'ibus', 'PWD': '/home/chase/project4/src/build/p4pkg', 'XDG_CONFIG_DIRS': '/etc/xdg/xdg-ubuntu:/etc/xdg', 'XDG_DATA_DIRS': '/usr/share/ubuntu:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop', 'COLCON': '1', 'VTE_VERSION': '6003', 'PYTHONPATH': '/home/chase/project4/src/build/p4pkg/prefix_override:/home/chase/project4/src/install/p4pkg/lib/python3.8/site-packages:'}, 'shell': False}
+[4.728874] (-) TimerEvent: {}
+[4.865312] (-) TimerEvent: {}
+[5.001912] (-) TimerEvent: {}
+[5.123390] (-) TimerEvent: {}
+[5.236416] (-) TimerEvent: {}
+[5.347797] (-) TimerEvent: {}
+[5.453957] (-) TimerEvent: {}
+[5.557492] (-) TimerEvent: {}
+[5.663343] (-) TimerEvent: {}
+[5.774502] (-) TimerEvent: {}
+[5.882532] (-) TimerEvent: {}
+[5.985486] (-) TimerEvent: {}
+[6.193232] (-) TimerEvent: {}
+[6.199963] (p4pkg) StdoutLine: {'line': b'running egg_info\n'}
+[6.201290] (p4pkg) StdoutLine: {'line': b'writing ../build/p4pkg/p4pkg.egg-info/PKG-INFO\n'}
+[6.215407] (p4pkg) StdoutLine: {'line': b'writing dependency_links to ../build/p4pkg/p4pkg.egg-info/dependency_links.txt\n'}
+[6.222112] (p4pkg) StdoutLine: {'line': b'writing entry points to ../build/p4pkg/p4pkg.egg-info/entry_points.txt\n'}
+[6.248318] (p4pkg) StdoutLine: {'line': b'writing requirements to ../build/p4pkg/p4pkg.egg-info/requires.txt\n'}
+[6.249791] (p4pkg) StdoutLine: {'line': b'writing top-level names to ../build/p4pkg/p4pkg.egg-info/top_level.txt\n'}
+[6.307984] (-) TimerEvent: {}
+[6.437038] (-) TimerEvent: {}
+[6.501598] (p4pkg) StdoutLine: {'line': b"reading manifest file '../build/p4pkg/p4pkg.egg-info/SOURCES.txt'\n"}
+[6.507138] (p4pkg) StdoutLine: {'line': b"writing manifest file '../build/p4pkg/p4pkg.egg-info/SOURCES.txt'\n"}
+[6.527503] (p4pkg) StdoutLine: {'line': b'running build\n'}
+[6.527894] (p4pkg) StdoutLine: {'line': b'running build_py\n'}
+[6.533674] (p4pkg) StdoutLine: {'line': b'copying p4pkg/simulator.py -> /home/chase/project4/src/build/p4pkg/build/lib/p4pkg\n'}
+[6.534365] (p4pkg) StdoutLine: {'line': b'copying p4pkg/world_reader.py -> /home/chase/project4/src/build/p4pkg/build/lib/p4pkg\n'}
+[6.535098] (p4pkg) StdoutLine: {'line': b'running install\n'}
+[6.543380] (p4pkg) StdoutLine: {'line': b'running install_lib\n'}
+[6.543757] (-) TimerEvent: {}
+[6.550064] (p4pkg) StdoutLine: {'line': b'copying /home/chase/project4/src/build/p4pkg/build/lib/p4pkg/simulator.py -> /home/chase/project4/src/install/p4pkg/lib/python3.8/site-packages/p4pkg\n'}
+[6.551292] (p4pkg) StdoutLine: {'line': b'copying /home/chase/project4/src/build/p4pkg/build/lib/p4pkg/world_reader.py -> /home/chase/project4/src/install/p4pkg/lib/python3.8/site-packages/p4pkg\n'}
+[6.580040] (p4pkg) StdoutLine: {'line': b'byte-compiling /home/chase/project4/src/install/p4pkg/lib/python3.8/site-packages/p4pkg/simulator.py to simulator.cpython-38.pyc\n'}
+[6.584788] (p4pkg) StdoutLine: {'line': b'byte-compiling /home/chase/project4/src/install/p4pkg/lib/python3.8/site-packages/p4pkg/world_reader.py to world_reader.cpython-38.pyc\n'}
+[6.612182] (p4pkg) StdoutLine: {'line': b'running install_data\n'}
+[6.615925] (p4pkg) StdoutLine: {'line': b'running install_egg_info\n'}
+[6.620454] (p4pkg) StdoutLine: {'line': b"removing '/home/chase/project4/src/install/p4pkg/lib/python3.8/site-packages/p4pkg-0.0.0-py3.8.egg-info' (and everything under it)\n"}
+[6.629208] (p4pkg) StdoutLine: {'line': b'Copying ../build/p4pkg/p4pkg.egg-info to /home/chase/project4/src/install/p4pkg/lib/python3.8/site-packages/p4pkg-0.0.0-py3.8.egg-info\n'}
+[6.655411] (-) TimerEvent: {}
+[6.656752] (p4pkg) StdoutLine: {'line': b'running install_scripts\n'}
+[6.732053] (p4pkg) StdoutLine: {'line': b'Installing simulator script to /home/chase/project4/src/install/p4pkg/lib/p4pkg\n'}
+[6.736623] (p4pkg) StdoutLine: {'line': b"writing list of installed files to '/home/chase/project4/src/build/p4pkg/install.log'\n"}
+[6.767411] (-) TimerEvent: {}
+[6.889103] (-) TimerEvent: {}
+[6.912757] (p4pkg) CommandEnded: {'returncode': 0}
+[7.003501] (-) TimerEvent: {}
+[7.065167] (p4pkg) JobEnded: {'identifier': 'p4pkg', 'rc': 0}
+[7.079779] (-) EventReactorShutdown: {}
