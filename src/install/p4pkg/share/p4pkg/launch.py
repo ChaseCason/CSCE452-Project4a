@@ -8,7 +8,11 @@ from launch.event_handler import *
 from launch.event import *
 
 def generate_launch_description():
+<<<<<<< HEAD
 
+=======
+    
+>>>>>>> 9e754faee1527830e4f33bfebb15f8cc2eb4ad34
     #input_bag_arg = DeclareLaunchArgument('bag_in')
     #output_bag_arg = DeclareLaunchArgument('bag_out')
 
@@ -17,11 +21,16 @@ def generate_launch_description():
     launchBot = load_disc_robot('normal.robot')
     node = Node(package='p4pkg',
                 executable='simulator')
+<<<<<<< HEAD
 
+=======
+    
+>>>>>>> 9e754faee1527830e4f33bfebb15f8cc2eb4ad34
     robot_state_publisher_node = Node(
             package='robot_state_publisher',
             executable='robot_state_publisher',
             parameters=[{'robot_description' : launchBot['urdf']}])
+<<<<<<< HEAD
 
     #ep = ExecuteProcess(cmd=['ros2', 'bag', 'play', LaunchConfiguration('bag_in')
     #record = ExecuteProcess(cmd=['ros2', 'bag', 'record', '-o', LaunchConfiguration('bag_out'), '/scan', '/map'])
@@ -31,3 +40,14 @@ def generate_launch_description():
     ld = LaunchDescription([ robot_state_publisher_node, node])
 
     return ld
+=======
+    
+    #ep = ExecuteProcess(cmd=['ros2', 'bag', 'play', LaunchConfiguration('bag_in')
+    #record = ExecuteProcess(cmd=['ros2', 'bag', 'record', '-o', LaunchConfiguration('bag_out'), '/scan', '/map'])
+   # event_handler = OnProcessExit(target_action=ep, on_exit[EmitEvent(event=Shutdown())])
+   # terminate_at_end = RegisterEventHandler(event_handler)
+    #ed, record, terminate_at_end
+    ld = LaunchDescription([ robot_state_publisher_node, node])
+    
+    return ld
+>>>>>>> 9e754faee1527830e4f33bfebb15f8cc2eb4ad34

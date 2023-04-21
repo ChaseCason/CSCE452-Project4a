@@ -1,0 +1,19 @@
+{
+  "package_name": "controller_manager_msgs",
+  "non_idl_tuples": [
+    "/home/chase/project4/src/ros2_control/controller_manager_msgs:msg/ControllerState.msg",
+    "/home/chase/project4/src/ros2_control/controller_manager_msgs:msg/ChainConnection.msg",
+    "/home/chase/project4/src/ros2_control/controller_manager_msgs:msg/HardwareComponentState.msg",
+    "/home/chase/project4/src/ros2_control/controller_manager_msgs:msg/HardwareInterface.msg",
+    "/home/chase/project4/src/ros2_control/controller_manager_msgs:srv/ConfigureController.srv",
+    "/home/chase/project4/src/ros2_control/controller_manager_msgs:srv/ListControllers.srv",
+    "/home/chase/project4/src/ros2_control/controller_manager_msgs:srv/ListControllerTypes.srv",
+    "/home/chase/project4/src/ros2_control/controller_manager_msgs:srv/ListHardwareComponents.srv",
+    "/home/chase/project4/src/ros2_control/controller_manager_msgs:srv/ListHardwareInterfaces.srv",
+    "/home/chase/project4/src/ros2_control/controller_manager_msgs:srv/LoadController.srv",
+    "/home/chase/project4/src/ros2_control/controller_manager_msgs:srv/ReloadControllerLibraries.srv",
+    "/home/chase/project4/src/ros2_control/controller_manager_msgs:srv/SetHardwareComponentState.srv",
+    "/home/chase/project4/src/ros2_control/controller_manager_msgs:srv/SwitchController.srv",
+    "/home/chase/project4/src/ros2_control/controller_manager_msgs:srv/UnloadController.srv"
+  ]
+}

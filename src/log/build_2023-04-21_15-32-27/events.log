@@ -1,0 +1,16 @@
+[0.000000] (-) TimerEvent: {}
+[0.000182] (-) JobUnselected: {'identifier': 'controller_interface'}
+[0.000210] (-) JobUnselected: {'identifier': 'controller_manager'}
+[0.000228] (-) JobUnselected: {'identifier': 'controller_manager_msgs'}
+[0.000243] (-) JobUnselected: {'identifier': 'hardware_interface'}
+[0.000257] (-) JobUnselected: {'identifier': 'joint_limits'}
+[0.000271] (-) JobUnselected: {'identifier': 'p4pkg'}
+[0.000284] (-) JobUnselected: {'identifier': 'ros2_control_test_assets'}
+[0.000297] (-) JobUnselected: {'identifier': 'ros2controlcli'}
+[0.000310] (-) JobUnselected: {'identifier': 'rqt_controller_manager'}
+[0.000323] (-) JobUnselected: {'identifier': 'transmission_interface'}
+[0.000340] (ros2_control) JobQueued: {'identifier': 'ros2_control', 'dependencies': OrderedDict([('controller_manager_msgs', '/home/chase/project4/src/install/controller_manager_msgs'), ('joint_limits', '/home/chase/project4/src/install/joint_limits'), ('ros2_control_test_assets', '/home/chase/project4/src/install/ros2_control_test_assets'), ('hardware_interface', '/home/chase/project4/src/install/hardware_interface'), ('controller_interface', '/home/chase/project4/src/install/controller_interface'), ('transmission_interface', '/home/chase/project4/src/install/transmission_interface'), ('controller_manager', '/home/chase/project4/src/install/controller_manager'), ('ros2controlcli', '/home/chase/project4/src/install/ros2controlcli')])}
+[0.000373] (ros2_control) JobStarted: {'identifier': 'ros2_control'}
+[0.099707] (-) TimerEvent: {}
+[0.122239] (ros2_control) JobEnded: {'identifier': 'ros2_control', 'rc': 1}
+[0.125398] (-) EventReactorShutdown: {}
