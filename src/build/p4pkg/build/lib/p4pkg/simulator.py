@@ -47,13 +47,12 @@ class Simulator(Node):
         self.mapPublisher.publish(self.occupancyGridMsg)
 
     def update_transforms(self):
-        self.w_tf_transform.header.stamp = self.get_clock().now().to_msg()
-        self.w_tf_transform.transform.translation.x = self.x
-        self.w_tf_transform.transform.translation.y = self.y
-        self.w_tf_transform.transform.rotation.z = math.sin(self.theta / 2)
-        self.w_tf_transform.transform.rotation.w = math.cos(self.theta / 2)
-        self.w_tf_broadcaster.sendTransform(self.w_tf_transform)
-        self.bl_tf_broadcaster.sendTransform(self.bl_tf_transform)
+        self.base_link.header.stamp = self.get_clock().now().to_msg()
+        self.base_link.transform.translation.x = self.x
+        self.base_link.transform.translation.y = self.y
+        self.base_link.transform.rotation.z = math.sin(self.theta / 2)
+        self.base_link.transform.rotation.w = math.cos(self.theta / 2)
+        self.base_link_broadcast.sendTransform(self.base_link)
 
     def vl_callback(self, msg):
         self.vl = msg.data
@@ -64,7 +63,7 @@ class Simulator(Node):
         self.update_position()
 
     def update_position(self):
-        dt = 0.1 # time step
+        dt =0.1 # time step
         v = (self.vr + self.vl) / 2
         w = (self.vr - self.vl) / self.l
 
@@ -72,8 +71,9 @@ class Simulator(Node):
         dy = v * dt * math.sin(self.theta)
         dtheta = w * dt
 
-        self.x += dx
-        self.y += dy
+        self.x += dx * self.occupancyGridMsg.info.resolution
+        self.y += dy * self.occupancyGridMsg.info.resolution
+
         self.theta += dtheta
 
         self.update_transforms()
