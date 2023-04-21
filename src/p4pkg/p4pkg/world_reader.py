@@ -27,7 +27,7 @@ def read_world(file_name):
                 currRow.append(100)
             else:
                 raise ValueError("Invalid character")
-        parsed_map.append(currRow)
+        parsed_map.insert(0,currRow)
 
     msg = OccupancyGrid()
     msg.header.frame_id = "map"

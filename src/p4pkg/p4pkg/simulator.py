@@ -3,9 +3,11 @@ from p4pkg.world_reader import read_world
 from sensor_msgs.msg import LaserScan
 from std_msgs.msg import Float64
 import tf2_ros
-from geometry_msgs.msg import TransformStamped
+import geometry_msgs.msg as gm
 import rclpy
 from rclpy.node import  Node
+
+from nav_msgs.msg import OccupancyGrid
 
 import math
 
@@ -50,6 +52,7 @@ class Simulator(Node):
 
         self.robot = load_disc_robot("normal.robot")
         self.l = self.robot['wheels']['distance']  # distance between robot's wheels
+        self.rad = self.robot['body']['radius']
 
         self.world = read_world('brick.world')  # tuple (occupancyGridMsg, pose)
         self.occupancyGridMsg = self.world[0]
@@ -66,36 +69,45 @@ class Simulator(Node):
         self.mapPublisher = self.create_publisher(OccupancyGrid, 'map', 10)
         self.laserPublisher = self.create_publisher(LaserScan, 'scan', 10)
         
-        self.w_tf_transform = tf2_ros.TransformBroadcaster(self) #initialize broadcaster
+        self.world_broadcast = tf2_ros.StaticTransformBroadcaster(self) #initialize broadcaster
 
-        self.w_tf_transform = TransformStamped() #Setup transform world to base_link
-        self.w_tf_transform.header.stamp = self.get_clock().now().to_msg()
-        self.w_tf_transform.header.frame_id = "world"
-        self.w_tf_transform.child_frame_id = "base_link"
-        self.w_tf_transform.transform.translation.x = initialPosition[0]
-        self.w_tf_transform.transform.translation.y = initialPosition[1]
-        self.w_tf_transform.transform.translation.z = 0.0
-        self.w_tf_transform.transform.rotation.x = 0.0
-        self.w_tf_transform.transform.rotation.y = initialPosition[2]
-        self.w_tf_transform.transform.rotation.z = 0.0
-        self.w_tf_transform.transform.rotation.w = 1.0
+        self.world = gm.TransformStamped() #Setup transform world to base_link
+        self.world.header.stamp = self.get_clock().now().to_msg()
+        self.world.header.frame_id = ""
+        self.world.child_frame_id = "world" #WE NEED TO VERIFY THIS
+        
 
-        self.bl_tf_transform = tf2_ros.TransformBroadcaster(self) #initialize broadcaster
+        self.world_broadcast.sendTransform(self.world)
 
-        self.bl_tf_transform = TransformStamped() #Setup transform base_link to laser
-        self.bl_tf_transform.header.stamp = self.get_clock().now().to_msg()
-        self.bl_tf_transform.header.frame_id = "base_link"
-        self.bl_tf_transform.child_frame_id = "laser"
-        self.bl_tf_transform.transform.translation.x = self.robot['body']['radius'] * 0.5
-        self.bl_tf_transform.transform.translation.y = 0.0
-        self.bl_tf_transform.transform.translation.z = 0.0
-        self.bl_tf_transform.transform.rotation.x = 0.0
-        self.bl_tf_transform.transform.rotation.y = 0.0
-        self.bl_tf_transform.transform.rotation.z = 0.0
-        self.bl_tf_transform.transform.rotation.w = 1.0
 
-        self.w_tf_broadcaster.sendTransform(self.tf_transform)
-        self.bl_tf_broadcaster.sendTransform(self.tf_transform)
+        self.base_link_broadcast = tf2_ros.TransformBroadcaster(self) #initialize broadcaster
+        
+        self.base_link = gm.TransformStamped() #Setup transform world to base_link
+        self.base_link.header.stamp = self.get_clock().now().to_msg()
+        self.base_link.header.frame_id = "world"
+        self.base_link.child_frame_id = "base_link" #WE NEED TO VERIFY THIS
+
+        self.base_link_quat = tf2_ros.transformations.quaternion_from_euler(0, 0, self.theta)
+        self.base_link.transform.translation = gm.Vector3(self.x,self.y,0)
+        self.base_link.transform.rotation.x = self.base_link_quat[0]
+        self.base_link.transform.rotation.y = self.base_link_quat[1]
+        self.base_link.transform.rotation.z = self.base_link_quat[2]
+        self.base_link.transform.rotation.w = self.base_link_quat[3]
+        
+        self.base_link_broadcast.sendTransform(self.base_link)
+
+
+
+        self.laser_broadcast = tf2_ros.TransformBroadcaster(self) #initialize broadcaster
+        
+        self.laser = gm.TransformStamped() #Setup transform world to laser
+        self.laser.header.stamp = self.get_clock().now().to_msg()
+        self.laser.header.frame_id = "base_link"
+        self.laser.child_frame_id = "laser" #WE NEED TO VERIFY THIS
+
+        self.laser.transform.translation = gm.Vector3(0.5*self.rad,0,0)
+
+        self.laser_broadcast.sendTransform(self.laser)
         
         create_map(self, occupancyGridMsg)
 
