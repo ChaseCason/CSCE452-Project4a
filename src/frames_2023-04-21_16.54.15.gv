@@ -1,0 +1,8 @@
+digraph G {
+"world" -> "base_link"[label=" Broadcaster: default_authority\nAverage rate: 10000.0\nBuffer length: 0.0\nMost recent transform: 1682114052.212309\nOldest transform: 1682114052.212309\n"];
+"base_link" -> "laser"[label=" Broadcaster: default_authority\nAverage rate: 10000.0\nBuffer length: 0.0\nMost recent transform: 1682114052.228963\nOldest transform: 1682114052.228963\n"];
+edge [style=invis];
+ subgraph cluster_legend { style=bold; color=black; label ="view_frames Result";
+"Recorded at time: 1682114055.031438"[ shape=plaintext ] ;
+}->"world";
+}
