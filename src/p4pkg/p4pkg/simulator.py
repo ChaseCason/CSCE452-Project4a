@@ -1,15 +1,45 @@
-from p4pkg.disc_robot import load_disc_robot
-from p4pkg.world_reader import read_world
+# from p4pkg.disc_robot import load_disc_robot
+# from p4pkg.world_reader import read_world
+from disc_robot import load_disc_robot
+from world_reader import read_world
 from sensor_msgs.msg import LaserScan
 from std_msgs.msg import Float64
 import tf2_ros
 import geometry_msgs.msg as gm
 import rclpy
+import numpy as np
+
 from rclpy.node import  Node
 
 from nav_msgs.msg import OccupancyGrid
 
 import math
+
+
+
+def quaternion_from_euler(ai, aj, ak):
+    ai /= 2.0
+    aj /= 2.0
+    ak /= 2.0
+    ci = math.cos(ai)
+    si = math.sin(ai)
+    cj = math.cos(aj)
+    sj = math.sin(aj)
+    ck = math.cos(ak)
+    sk = math.sin(ak)
+    cc = ci*ck
+    cs = ci*sk
+    sc = si*ck
+    ss = si*sk
+
+    q = np.empty((4, ))
+    q[0] = cj*sc - sj*cs
+    q[1] = cj*ss + sj*cc
+    q[2] = cj*cs - sj*sc
+    q[3] = cj*cc + sj*ss
+
+    return q
+
 
 class Simulator(Node):
 
@@ -49,12 +79,14 @@ class Simulator(Node):
         self.update_transforms()
 
     def __init__(self):
+        super().__init__('simulator')
+
 
         self.robot = load_disc_robot("normal.robot")
         self.l = self.robot['wheels']['distance']  # distance between robot's wheels
         self.rad = self.robot['body']['radius']
 
-        self.world = read_world('brick.world')  # tuple (occupancyGridMsg, pose)
+        self.world = read_world('test.world')  # tuple (occupancyGridMsg, pose)
         self.occupancyGridMsg = self.world[0]
         self.initialPosition = self.world[1]
 
@@ -69,15 +101,15 @@ class Simulator(Node):
         self.mapPublisher = self.create_publisher(OccupancyGrid, 'map', 10)
         self.laserPublisher = self.create_publisher(LaserScan, 'scan', 10)
         
-        self.world_broadcast = tf2_ros.StaticTransformBroadcaster(self) #initialize broadcaster
+        # self.world_broadcast = tf2_ros.StaticTransformBroadcaster(self) #initialize broadcaster
 
-        self.world = gm.TransformStamped() #Setup transform world to base_link
-        self.world.header.stamp = self.get_clock().now().to_msg()
-        self.world.header.frame_id = ""
-        self.world.child_frame_id = "world" #WE NEED TO VERIFY THIS
+        # self.world = gm.TransformStamped() #Setup transform world to base_link
+        # self.world.header.stamp = self.get_clock().now().to_msg()
+        # self.world.header.frame_id = ""
+        # self.world.child_frame_id = "world" #WE NEED TO VERIFY THIS
         
 
-        self.world_broadcast.sendTransform(self.world)
+        # self.world_broadcast.sendTransform(self.world)
 
 
         self.base_link_broadcast = tf2_ros.TransformBroadcaster(self) #initialize broadcaster
@@ -87,8 +119,11 @@ class Simulator(Node):
         self.base_link.header.frame_id = "world"
         self.base_link.child_frame_id = "base_link" #WE NEED TO VERIFY THIS
 
-        self.base_link_quat = tf2_ros.transformations.quaternion_from_euler(0, 0, self.theta)
-        self.base_link.transform.translation = gm.Vector3(self.x,self.y,0)
+        self.base_link_quat = quaternion_from_euler(0, 0, self.theta)
+
+        self.base_link.transform.translation.x = self.x
+        self.base_link.transform.translation.y = self.y
+
         self.base_link.transform.rotation.x = self.base_link_quat[0]
         self.base_link.transform.rotation.y = self.base_link_quat[1]
         self.base_link.transform.rotation.z = self.base_link_quat[2]
@@ -105,11 +140,13 @@ class Simulator(Node):
         self.laser.header.frame_id = "base_link"
         self.laser.child_frame_id = "laser" #WE NEED TO VERIFY THIS
 
-        self.laser.transform.translation = gm.Vector3(0.5*self.rad,0,0)
+        self.laser.transform.translation.x = 0.5*self.rad
 
         self.laser_broadcast.sendTransform(self.laser)
         
-        create_map(self, occupancyGridMsg)
+
+        self.mapPublisher.publish(self.occupancyGridMsg)
+        # create_map(self, occupancyGridMsg)
 
 def main(args=None):
     rclpy.init(args=args)

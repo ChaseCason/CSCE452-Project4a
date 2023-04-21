@@ -30,7 +30,7 @@ def read_world(file_name):
         parsed_map.insert(0,currRow)
 
     msg = OccupancyGrid()
-    msg.header.frame_id = "map"
+    msg.header.frame_id = "world"
     msg.info.width = len(parsed_map[0])
     msg.info.height = len(parsed_map)
     msg.info.resolution = resolution
