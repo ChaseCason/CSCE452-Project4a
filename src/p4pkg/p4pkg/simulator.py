@@ -100,14 +100,17 @@ class Simulator(Node):
         create_map(self, occupancyGridMsg)
 
 def main(args=None):
-
     rclpy.init(args=args)
-    node = rclpy.create_node('simulator')
-    
+
+    sim = Simulator()
+
     try:
-        rclpy.spin_once(node)
+        rclpy.spin(sim)
     except KeyboardInterrupt:
         pass
+
+    sim.destroy_node()
+    rclpy.shutdown()
 
     node.destroy_node()
     rclpy.shutdown()
