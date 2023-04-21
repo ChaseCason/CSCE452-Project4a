@@ -34,6 +34,6 @@ def read_world(file_name):
     msg.info.width = len(parsed_map[0])
     msg.info.height = len(parsed_map)
     msg.info.resolution = resolution
-    msg.data = parsed_map
+    msg.data = [val for row in parsed_map for val in row]
 
     return (msg, initial_pose)

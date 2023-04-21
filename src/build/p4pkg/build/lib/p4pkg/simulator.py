@@ -5,23 +5,33 @@ from std_msgs.msg import Float64
 import tf2_ros
 from geometry_msgs.msg import TransformStamped
 import rclpy
-
+from rclpy.node import  Node
 
 class Simulator(Node):
+
+    def create_map(self, msg):
+        self.mapPublisher.publish(self.occupancyGridMsg)
+        
+
+    def vl_callback(self, msg):
+        return
+
+    def vr_callback(self, msg):
+        return
+
     def __init__(self):
 
-        self.robot = load_disc_robot("normal.robot")
-        self.l = robot['wheels']['distance'] #distance between robot's wheels
+        #self.robot = load_disc_robot("normal.robot")
+        #self.l = self.robot['wheels']['distance'] #distance between robot's wheels
 
         self.world = read_world('brick.world') #tuple (occupancyGridMsg, pose)
-        self.occupancyGridMsg = world[0]
-        self.initialPosition = world[1]
-
-        self.leftWheelSubscriber = node.create_subscription(Float64, "vl", vl_callback)
-        self.rightWheelSubscriber = node.create_subscription(Float64, "vr", vr_callback)
-
-        self.mapPublisher = node.create_publisher(OccupancyGrid, 'map')
-        self.laserPublisher = node.create_publisher(LaserScan, 'scan')
+        self.occupancyGridMsg = self.world[0]
+        self.initialPosition = self.world[1]
+        """
+        self.leftWheelSubscriber = self.create_subscription(Float64, "vl", self.vl_callback, 10)
+        self.rightWheelSubscriber = self.create_subscription(Float64, "vr", self.vr_callback, 10)
+        self.mapPublisher = self.create_publisher(OccupancyGrid, 'map', 10)
+        self.laserPublisher = self.create_publisher(LaserScan, 'scan', 10)
         
         self.w_tf_transform = tf2_ros.TransformBroadcaster(self) #initialize broadcaster
 
@@ -43,7 +53,7 @@ class Simulator(Node):
         self.bl_tf_transform.header.stamp = self.get_clock().now().to_msg()
         self.bl_tf_transform.header.frame_id = "base_link"
         self.bl_tf_transform.child_frame_id = "laser"
-        self.bl_tf_transform.transform.translation.x = robot['body']['radius'] * 0.5
+        self.bl_tf_transform.transform.translation.x = self.robot['body']['radius'] * 0.5
         self.bl_tf_transform.transform.translation.y = 0.0
         self.bl_tf_transform.transform.translation.z = 0.0
         self.bl_tf_transform.transform.rotation.x = 0.0
@@ -53,28 +63,16 @@ class Simulator(Node):
 
         self.w_tf_broadcaster.sendTransform(self.tf_transform)
         self.bl_tf_broadcaster.sendTransform(self.tf_transform)
-
-
-
-    def v1_callback(self, msg):
-        
-        pass
-
-    def vr_callback(self, msg):
-
-        pass
-
+        """
+        create_map(self, occupancyGridMsg)
 
 def main(args=None):
 
     rclpy.init(args=args)
-    node = Simulator()
+    node = rclpy.create_node('simulator')
     
     try:
-        mapPublisher.publish(node.occupancyGridMsg)
-        #laserPublisher.publish()
-
-        rclpy.spin(node)
+        rclpy.spin_once(node)
     except KeyboardInterrupt:
         pass
 

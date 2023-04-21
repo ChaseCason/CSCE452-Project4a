@@ -1,0 +1,24 @@
+[6.341s] Invoking command in '/home/chase/project4/src/p4pkg': PYTHONPATH=/home/chase/project4/src/build/p4pkg/prefix_override:/home/chase/project4/src/install/p4pkg/lib/python3.8/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py egg_info --egg-base ../build/p4pkg build --build-base /home/chase/project4/src/build/p4pkg/build install --record /home/chase/project4/src/build/p4pkg/install.log --single-version-externally-managed
+[9.220s] running egg_info
+[9.221s] writing ../build/p4pkg/p4pkg.egg-info/PKG-INFO
+[9.234s] writing dependency_links to ../build/p4pkg/p4pkg.egg-info/dependency_links.txt
+[9.235s] writing entry points to ../build/p4pkg/p4pkg.egg-info/entry_points.txt
+[9.244s] writing requirements to ../build/p4pkg/p4pkg.egg-info/requires.txt
+[9.267s] writing top-level names to ../build/p4pkg/p4pkg.egg-info/top_level.txt
+[9.473s] reading manifest file '../build/p4pkg/p4pkg.egg-info/SOURCES.txt'
+[9.474s] writing manifest file '../build/p4pkg/p4pkg.egg-info/SOURCES.txt'
+[9.477s] running build
+[9.478s] running build_py
+[9.479s] copying p4pkg/simulator.py -> /home/chase/project4/src/build/p4pkg/build/lib/p4pkg
+[9.480s] running install
+[9.483s] running install_lib
+[9.484s] copying /home/chase/project4/src/build/p4pkg/build/lib/p4pkg/simulator.py -> /home/chase/project4/src/install/p4pkg/lib/python3.8/site-packages/p4pkg
+[9.487s] byte-compiling /home/chase/project4/src/install/p4pkg/lib/python3.8/site-packages/p4pkg/simulator.py to simulator.cpython-38.pyc
+[9.512s] running install_data
+[9.513s] running install_egg_info
+[9.517s] removing '/home/chase/project4/src/install/p4pkg/lib/python3.8/site-packages/p4pkg-0.0.0-py3.8.egg-info' (and everything under it)
+[9.518s] Copying ../build/p4pkg/p4pkg.egg-info to /home/chase/project4/src/install/p4pkg/lib/python3.8/site-packages/p4pkg-0.0.0-py3.8.egg-info
+[9.528s] running install_scripts
+[9.618s] Installing simulator script to /home/chase/project4/src/install/p4pkg/lib/p4pkg
+[9.628s] writing list of installed files to '/home/chase/project4/src/build/p4pkg/install.log'
+[9.680s] Invoked command in '/home/chase/project4/src/p4pkg' returned '0': PYTHONPATH=/home/chase/project4/src/build/p4pkg/prefix_override:/home/chase/project4/src/install/p4pkg/lib/python3.8/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py egg_info --egg-base ../build/p4pkg build --build-base /home/chase/project4/src/build/p4pkg/build install --record /home/chase/project4/src/build/p4pkg/install.log --single-version-externally-managed
