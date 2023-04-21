@@ -112,9 +112,6 @@ def main(args=None):
     sim.destroy_node()
     rclpy.shutdown()
 
-    node.destroy_node()
-    rclpy.shutdown()
-
 
 
 if __name__ == '__main__':
