@@ -50,8 +50,11 @@ class Simulator(Node):
         self.base_link.header.stamp = self.get_clock().now().to_msg()
         self.base_link.transform.translation.x = self.x
         self.base_link.transform.translation.y = self.y
-        self.base_link.transform.rotation.z = math.sin(self.theta / 2)
-        self.base_link.transform.rotation.w = math.cos(self.theta / 2)
+        self.base_link_quat = quaternion_from_euler(0, 0, self.theta)
+        self.base_link.transform.rotation.x = self.base_link_quat[0]
+        self.base_link.transform.rotation.y = self.base_link_quat[1]
+        self.base_link.transform.rotation.z = self.base_link_quat[2]
+        self.base_link.transform.rotation.w = self.base_link_quat[3]
         self.base_link_broadcast.sendTransform(self.base_link)
 
     def vl_callback(self, msg):
@@ -117,6 +120,7 @@ class Simulator(Node):
         #self.mapPublisher.publish(self.occupancyGridMsg)
         self.tf_time  = self.create_timer(self.laser_rate, self.tf_callback)
         self.laser_time  = self.create_timer(self.laser_rate, self.laser_callback)
+        
         # create_map(self, occupancyGridMsg)
 
     def tf_callback(self):
@@ -185,11 +189,11 @@ class Simulator(Node):
 
     def laser_callback(self):
         
-        print("MADE IT HERE DKGSKLDGLKSGHLKSHGLK:SDGHSLKG:")
+        
         ranges = []
         #Defines how much range increases for each step in obstacle check
         #THIS VALUE MAY NEED TO CHANGE
-        range_gap = .0001
+        range_gap = .001
         angle_gap = (self.angle_max - self.angle_min) / self.laser_count
         for i in range(self.laser_count):
             if random.random() < self.fail_prob:
@@ -198,11 +202,10 @@ class Simulator(Node):
 
             #angle relative to laser frame 
             theta = self.theta + self.angle_min + (i * angle_gap)
-            x = self.x + 0.5*self.rad 
-            y = self.y 
+            x = self.x + (0.5*self.rad * math.cos(theta))
+            y = self.y + (0.5*self.rad * math.sin(theta))
             
-            print('x',x)
-            print('y',y)
+
             
             #angle relative to world (which one do we use?)
             #theta = math.atan2(math.sin(angle + self.laser.transform.rotation.z), math.cos(angle + self.laser.transform.rotation.z))
@@ -213,15 +216,15 @@ class Simulator(Node):
             while curr_range < self.range_max:
                 test_x = (x + curr_range*math.cos(theta)) 
                 test_y = (y + curr_range*math.sin(theta)) 
-                curr_x = int(round((x + curr_range*math.cos(theta)) / self.occupancyGridMsg.info.resolution,4))
-                curr_y = int(round((y + curr_range*math.sin(theta)) / self.occupancyGridMsg.info.resolution,4))
+                curr_x = int((x + curr_range*math.cos(theta)) / self.occupancyGridMsg.info.resolution)
+                curr_y = int((y + curr_range*math.sin(theta)) / self.occupancyGridMsg.info.resolution)
 
                 #check to make sure still inside grid
                 if curr_x < 0 or curr_x >= self.occupancyGridMsg.info.width or curr_y < 0 or curr_y >= self.occupancyGridMsg.info.height:
-                    print("Outside grid")
+                    #print("Outside grid")
                     break
                 if self.occupancyGridMsg.data[curr_y * self.occupancyGridMsg.info.width + curr_x] == 100:
-                    print(i)
+                    #print(i)
                     hit_obstacle = True
                     # out_range = math.sqrt((test_x-x)**2 + (test_y-y)**2) 
                     break
@@ -229,10 +232,10 @@ class Simulator(Node):
                 curr_range += range_gap
 
             if(hit_obstacle):
-                print('------------------')
-                print(self.occupancyGridMsg.data[curr_y * self.occupancyGridMsg.info.width + curr_x])
-                print(curr_y * self.occupancyGridMsg.info.width + curr_x)
-                print(theta)
+                # print('------------------')
+                # print(self.occupancyGridMsg.data[curr_y * self.occupancyGridMsg.info.width + curr_x])
+                # print(curr_y * self.occupancyGridMsg.info.width + curr_x)
+                # print(theta)
                 ranges.append(curr_range + random.gauss(0,self.error))
             else:
                 ranges.append(float('inf'))
