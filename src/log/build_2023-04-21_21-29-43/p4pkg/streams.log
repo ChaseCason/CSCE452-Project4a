@@ -1,0 +1,24 @@
+[0.677s] Invoking command in '/home/tate/Documents/4a/CSCE452-Project4a/src/p4pkg': PYTHONPATH=/home/tate/Documents/4a/CSCE452-Project4a/src/build/p4pkg/prefix_override:/home/tate/Documents/4a/CSCE452-Project4a/src/install/p4pkg/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py egg_info --egg-base ../build/p4pkg build --build-base /home/tate/Documents/4a/CSCE452-Project4a/src/build/p4pkg/build install --record /home/tate/Documents/4a/CSCE452-Project4a/src/build/p4pkg/install.log --single-version-externally-managed
+[0.943s] running egg_info
+[0.943s] writing ../build/p4pkg/p4pkg.egg-info/PKG-INFO
+[0.943s] writing dependency_links to ../build/p4pkg/p4pkg.egg-info/dependency_links.txt
+[0.952s] writing entry points to ../build/p4pkg/p4pkg.egg-info/entry_points.txt
+[0.952s] writing requirements to ../build/p4pkg/p4pkg.egg-info/requires.txt
+[0.952s] writing top-level names to ../build/p4pkg/p4pkg.egg-info/top_level.txt
+[0.965s] reading manifest file '../build/p4pkg/p4pkg.egg-info/SOURCES.txt'
+[0.965s] writing manifest file '../build/p4pkg/p4pkg.egg-info/SOURCES.txt'
+[0.968s] running build
+[0.968s] running build_py
+[0.968s] copying p4pkg/simulator.py -> /home/tate/Documents/4a/CSCE452-Project4a/src/build/p4pkg/build/lib/p4pkg
+[0.968s] running install
+[0.968s] running install_lib
+[0.968s] copying /home/tate/Documents/4a/CSCE452-Project4a/src/build/p4pkg/build/lib/p4pkg/simulator.py -> /home/tate/Documents/4a/CSCE452-Project4a/src/install/p4pkg/lib/python3.10/site-packages/p4pkg
+[0.968s] byte-compiling /home/tate/Documents/4a/CSCE452-Project4a/src/install/p4pkg/lib/python3.10/site-packages/p4pkg/simulator.py to simulator.cpython-310.pyc
+[0.976s] running install_data
+[0.987s] running install_egg_info
+[0.987s] removing '/home/tate/Documents/4a/CSCE452-Project4a/src/install/p4pkg/lib/python3.10/site-packages/p4pkg-0.0.0-py3.10.egg-info' (and everything under it)
+[0.993s] Copying ../build/p4pkg/p4pkg.egg-info to /home/tate/Documents/4a/CSCE452-Project4a/src/install/p4pkg/lib/python3.10/site-packages/p4pkg-0.0.0-py3.10.egg-info
+[0.993s] running install_scripts
+[1.011s] Installing simulator script to /home/tate/Documents/4a/CSCE452-Project4a/src/install/p4pkg/lib/p4pkg
+[1.032s] writing list of installed files to '/home/tate/Documents/4a/CSCE452-Project4a/src/build/p4pkg/install.log'
+[1.092s] Invoked command in '/home/tate/Documents/4a/CSCE452-Project4a/src/p4pkg' returned '0': PYTHONPATH=/home/tate/Documents/4a/CSCE452-Project4a/src/build/p4pkg/prefix_override:/home/tate/Documents/4a/CSCE452-Project4a/src/install/p4pkg/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py egg_info --egg-base ../build/p4pkg build --build-base /home/tate/Documents/4a/CSCE452-Project4a/src/build/p4pkg/build install --record /home/tate/Documents/4a/CSCE452-Project4a/src/build/p4pkg/install.log --single-version-externally-managed

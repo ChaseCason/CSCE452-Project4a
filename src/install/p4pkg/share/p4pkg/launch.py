@@ -14,7 +14,7 @@ def generate_launch_description():
 
     #robot = DeclareLaunchArgument('robot')
 
-    launchBot = load_disc_robot('normal.robot')
+    launchBot = load_disc_robot('bad.robot')
     node = Node(package='p4pkg',
                 executable='simulator')
 
