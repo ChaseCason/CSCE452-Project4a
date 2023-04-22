@@ -15,8 +15,15 @@ def generate_launch_description():
     #robot = DeclareLaunchArgument('robot')
 
     launchBot = load_disc_robot('bad.robot')
-    node = Node(package='p4pkg',
+
+    simulator = Node(package='p4pkg',
                 executable='simulator')
+
+    navigation = Node(package='p4pkg',
+                        executable='navigation')
+
+    velocity = Node(package='p4pkg',
+                        executable='velocity')
 
     robot_state_publisher_node = Node(
             package='robot_state_publisher',
@@ -28,6 +35,6 @@ def generate_launch_description():
     # event_handler = OnProcessExit(target_action=ep, on_exit[EmitEvent(event=Shutdown())])
     # terminate_at_end = RegisterEventHandler(event_handler)
     #ed, record, terminate_at_end
-    ld = LaunchDescription([ robot_state_publisher_node, node])
+    ld = LaunchDescription([ robot_state_publisher_node, simulator, navigation, velocity])
 
     return ld

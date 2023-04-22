@@ -35,6 +35,6 @@ def generate_launch_description():
     # event_handler = OnProcessExit(target_action=ep, on_exit[EmitEvent(event=Shutdown())])
     # terminate_at_end = RegisterEventHandler(event_handler)
     #ed, record, terminate_at_end
-    ld = LaunchDescription([ robot_state_publisher_node, node, navigation, velocity])
+    ld = LaunchDescription([ robot_state_publisher_node, simulator, navigation, velocity])
 
     return ld

@@ -22,7 +22,9 @@ setup(
     tests_require=['pytest'],
     entry_points={
         'console_scripts': [
-            'simulator = p4pkg.simulator:main'
+            'simulator = p4pkg.simulator:main',
+            'velocity = p4pkg.velocity:main',
+            'navigation = p4pkg.navigation:main'
         ],
     },
 )

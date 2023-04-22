@@ -103,7 +103,7 @@ class Simulator(Node):
         super().__init__('simulator')
 
 
-        self.robot = load_disc_robot("normal.robot")
+        self.robot = load_disc_robot("bad.robot")
         self.l = self.robot['wheels']['distance']  # distance between robot's wheels
         self.rad = self.robot['body']['radius']
         self.rw_error = self.robot['wheels']['error_variance_left']
@@ -117,7 +117,7 @@ class Simulator(Node):
         self.error = self.robot['laser']['error_variance']
         self.fail_prob = self.robot['laser']['fail_probability']
 
-        self.world = read_world('brick.world')  # tuple (occupancyGridMsg, pose)
+        self.world = read_world('ell.world')  # tuple (occupancyGridMsg, pose)
         self.occupancyGridMsg = self.world[0]
         self.initialPosition = self.world[1]
 
@@ -253,7 +253,9 @@ class Simulator(Node):
                 if self.occupancyGridMsg.data[curr_y * self.occupancyGridMsg.info.width + curr_x] == 100:
                     #print(i)
                     hit_obstacle = True
-                    # out_range = math.sqrt((test_x-x)**2 + (test_y-y)**2) 
+                    
+                    #out_range = math.sqrt((test_x-round(x))**2 + (test_y-y)**2) 
+
                     break
 
                 curr_range += range_gap

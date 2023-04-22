@@ -11,7 +11,9 @@ setup.py
 launch/launch.py
 p4pkg/__init__.py
 p4pkg/disc_robot.py
+p4pkg/navigation.py
 p4pkg/simulator.py
+p4pkg/velocity.py
 p4pkg/world_reader.py
 resource/p4pkg
 test/test_copyright.py

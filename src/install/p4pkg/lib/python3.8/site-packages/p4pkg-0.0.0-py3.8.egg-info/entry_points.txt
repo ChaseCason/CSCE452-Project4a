@@ -1,3 +1,5 @@
 [console_scripts]
+navigation = p4pkg.navigation:main
 simulator = p4pkg.simulator:main
+velocity = p4pkg.velocity:main
 
