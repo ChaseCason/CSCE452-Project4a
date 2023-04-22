@@ -133,17 +133,11 @@ class Simulator(Node):
         self.mapPublisher = self.create_publisher(OccupancyGrid, 'map', 10)
         self.laserPublisher = self.create_publisher(LaserScan, 'scan', 10)
         
-
-        
-        
-
-        #self.mapPublisher.publish(self.occupancyGridMsg)
         self.wheel_time = self.create_timer(0.5, self.update_values)
         
         self.tf_time  = self.create_timer(self.laser_rate, self.tf_callback)
         self.laser_time  = self.create_timer(self.laser_rate, self.laser_callback)
         
-        # create_map(self, occupancyGridMsg)
 
 
     def update_values(self):
@@ -151,23 +145,12 @@ class Simulator(Node):
         self.right_wheel_error = random.gauss(1,self.rw_error)
 
     def tf_callback(self):
-        # self.world_broadcast = tf2_ros.StaticTransformBroadcaster(self) #initialize broadcaster
-
-        # self.world = gm.TransformStamped() #Setup transform world to base_link
-        # self.world.header.stamp = self.get_clock().now().to_msg()
-        # self.world.header.frame_id = ""
-        # self.world.child_frame_id = "world" #WE NEED TO VERIFY THIS
-        
-
-        # self.world_broadcast.sendTransform(self.world)
-
-
         self.base_link_broadcast = tf2_ros.TransformBroadcaster(self) #initialize broadcaster
         
         self.base_link = gm.TransformStamped() #Setup transform world to base_link
         self.base_link.header.stamp = self.get_clock().now().to_msg()
         self.base_link.header.frame_id = "world"
-        self.base_link.child_frame_id = "base_link" #WE NEED TO VERIFY THIS
+        self.base_link.child_frame_id = "base_link" 
 
         self.base_link_quat = quaternion_from_euler(0, 0, self.theta)
 
@@ -180,25 +163,6 @@ class Simulator(Node):
         self.base_link.transform.rotation.w = self.base_link_quat[3]
         
         self.base_link_broadcast.sendTransform(self.base_link)
-
-        # self.world2laser_broadcast = tf2_ros.TransformBroadcaster(self) #initialize broadcaster
-        
-        # self.world2laser = gm.TransformStamped() #Setup transform world to world2laser
-        # self.world2laser.header.stamp = self.get_clock().now().to_msg()
-        # self.world2laser.header.frame_id = "world"
-        # self.world2laser.child_frame_id = "laser" #WE NEED TO VERIFY THIS
-
-        # self.world2laser_quat = quaternion_from_euler(0, 0, self.theta)
-
-        # self.world2laser.transform.translation.x = self.x
-        # self.world2laser.transform.translation.y = self.y
-
-        # self.world2laser.transform.rotation.x = self.base_link_quat[0] + 0.5*self.rad
-        # self.world2laser.transform.rotation.y = self.base_link_quat[1]
-        # self.world2laser.transform.rotation.z = self.base_link_quat[2]
-        # self.world2laser.transform.rotation.w = self.base_link_quat[3]
-        
-        # self.world2laser_broadcast.sendTransform(self.world2laser)
 
         self.laser_broadcast = tf2_ros.TransformBroadcaster(self) #initialize broadcaster
         
@@ -219,7 +183,7 @@ class Simulator(Node):
         
         ranges = []
         #Defines how much range increases for each step in obstacle check
-        #THIS VALUE MAY NEED TO CHANGE
+   
         range_gap = .001
         angle_gap = (self.angle_max - self.angle_min) / self.laser_count
         for i in range(self.laser_count):
@@ -235,7 +199,6 @@ class Simulator(Node):
 
             
             #angle relative to world (which one do we use?)
-            #theta = math.atan2(math.sin(angle + self.laser.transform.rotation.z), math.cos(angle + self.laser.transform.rotation.z))
             curr_range = self.range_min
             hit_obstacle = False
             
@@ -248,23 +211,16 @@ class Simulator(Node):
 
                 #check to make sure still inside grid
                 if curr_x < 0 or curr_x >= self.occupancyGridMsg.info.width or curr_y < 0 or curr_y >= self.occupancyGridMsg.info.height:
-                    #print("Outside grid")
                     break
                 if self.occupancyGridMsg.data[curr_y * self.occupancyGridMsg.info.width + curr_x] == 100:
-                    #print(i)
                     hit_obstacle = True
                     
-                    #out_range = math.sqrt((test_x-round(x))**2 + (test_y-y)**2) 
-
                     break
 
                 curr_range += range_gap
 
             if(hit_obstacle):
-                # print('------------------')
-                # print(self.occupancyGridMsg.data[curr_y * self.occupancyGridMsg.info.width + curr_x])
-                # print(curr_y * self.occupancyGridMsg.info.width + curr_x)
-                # print(theta)
+
                 ranges.append(curr_range + random.gauss(0,self.error))
             else:
                 ranges.append(float('inf'))
