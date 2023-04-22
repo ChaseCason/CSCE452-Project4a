@@ -1,7 +1,5 @@
 from p4pkg.disc_robot import load_disc_robot
 from p4pkg.world_reader import read_world
-# from disc_robot import load_disc_robot
-# from world_reader import read_world
 from sensor_msgs.msg import LaserScan
 from std_msgs.msg import Float64
 import tf2_ros
