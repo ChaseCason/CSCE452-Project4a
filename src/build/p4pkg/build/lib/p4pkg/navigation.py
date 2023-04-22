@@ -24,14 +24,14 @@ class Navigation(Node):
 
 def main(args=None):
     rclpy.init(args=args)
-    sim = Navigation()
+    nav = Navigation()
 
     try:
-        rclpy.spin(sim)
+        rclpy.spin(nav)
     except KeyboardInterrupt:
         pass
 
-    sim.destroy_node()
+    nav.destroy_node()
     rclpy.shutdown()
 
 if __name__ == '__main__':

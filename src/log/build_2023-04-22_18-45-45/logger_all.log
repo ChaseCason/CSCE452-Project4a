@@ -1,0 +1,247 @@
+[3.180s] DEBUG:colcon:Command line arguments: ['/usr/bin/colcon', 'build']
+[3.180s] DEBUG:colcon:Parsed command line arguments: Namespace(allow_overriding=[], ament_cmake_args=None, base_paths=['.'], build_base='build', catkin_cmake_args=None, catkin_skip_building_tests=False, cmake_args=None, cmake_clean_cache=False, cmake_clean_first=False, cmake_force_configure=False, cmake_target=None, cmake_target_skip_unavailable=False, continue_on_error=False, event_handlers=None, executor='parallel', ignore_user_meta=False, install_base='install', log_base=None, log_level=None, main=<bound method BuildVerb.main of <colcon_core.verb.build.BuildVerb object at 0x7f06b03d9280>>, merge_install=False, metas=['./colcon.meta'], packages_above=None, packages_above_and_dependencies=None, packages_above_depth=None, packages_end=None, packages_ignore=None, packages_ignore_regex=None, packages_select=None, packages_select_build_failed=False, packages_select_by_dep=None, packages_select_regex=None, packages_select_test_failures=False, packages_skip=None, packages_skip_build_finished=False, packages_skip_by_dep=None, packages_skip_regex=None, packages_skip_test_passed=False, packages_skip_up_to=None, packages_start=None, packages_up_to=None, packages_up_to_regex=None, parallel_workers=1, paths=None, symlink_install=False, test_result_base=None, verb_extension=<colcon_core.verb.build.BuildVerb object at 0x7f06b03d9280>, verb_name='build', verb_parser=<colcon_defaults.argument_parser.defaults.DefaultArgumentsDecorator object at 0x7f06b03d97c0>)
+[3.601s] Level 1:colcon.colcon_core.package_discovery:discover_packages(colcon_meta) check parameters
+[3.601s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) check parameters
+[3.601s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) check parameters
+[3.601s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) check parameters
+[3.601s] Level 1:colcon.colcon_core.package_discovery:discover_packages(colcon_meta) discover
+[3.601s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) discover
+[3.601s] INFO:colcon.colcon_core.package_discovery:Crawling recursively for packages in '/home/chase/project4/src'
+[3.601s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['ignore', 'ignore_ament_install']
+[3.602s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ignore'
+[3.602s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ignore_ament_install'
+[3.602s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['colcon_pkg']
+[3.602s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'colcon_pkg'
+[3.602s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['colcon_meta']
+[3.602s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'colcon_meta'
+[3.602s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['ros']
+[3.602s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ros'
+[3.727s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['cmake', 'python']
+[3.727s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'cmake'
+[3.728s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'python'
+[3.728s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['python_setup_py']
+[3.728s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'python_setup_py'
+[3.728s] Level 1:colcon.colcon_core.package_identification:_identify(bags) by extensions ['ignore', 'ignore_ament_install']
+[3.728s] Level 1:colcon.colcon_core.package_identification:_identify(bags) by extension 'ignore'
+[3.728s] Level 1:colcon.colcon_core.package_identification:_identify(bags) by extension 'ignore_ament_install'
+[3.729s] Level 1:colcon.colcon_core.package_identification:_identify(bags) by extensions ['colcon_pkg']
+[3.729s] Level 1:colcon.colcon_core.package_identification:_identify(bags) by extension 'colcon_pkg'
+[3.729s] Level 1:colcon.colcon_core.package_identification:_identify(bags) by extensions ['colcon_meta']
+[3.729s] Level 1:colcon.colcon_core.package_identification:_identify(bags) by extension 'colcon_meta'
+[3.729s] Level 1:colcon.colcon_core.package_identification:_identify(bags) by extensions ['ros']
+[3.729s] Level 1:colcon.colcon_core.package_identification:_identify(bags) by extension 'ros'
+[3.729s] Level 1:colcon.colcon_core.package_identification:_identify(bags) by extensions ['cmake', 'python']
+[3.729s] Level 1:colcon.colcon_core.package_identification:_identify(bags) by extension 'cmake'
+[3.729s] Level 1:colcon.colcon_core.package_identification:_identify(bags) by extension 'python'
+[3.729s] Level 1:colcon.colcon_core.package_identification:_identify(bags) by extensions ['python_setup_py']
+[3.729s] Level 1:colcon.colcon_core.package_identification:_identify(bags) by extension 'python_setup_py'
+[3.730s] Level 1:colcon.colcon_core.package_identification:_identify(bags/input1) by extensions ['ignore', 'ignore_ament_install']
+[3.730s] Level 1:colcon.colcon_core.package_identification:_identify(bags/input1) by extension 'ignore'
+[3.730s] Level 1:colcon.colcon_core.package_identification:_identify(bags/input1) by extension 'ignore_ament_install'
+[3.730s] Level 1:colcon.colcon_core.package_identification:_identify(bags/input1) by extensions ['colcon_pkg']
+[3.730s] Level 1:colcon.colcon_core.package_identification:_identify(bags/input1) by extension 'colcon_pkg'
+[3.730s] Level 1:colcon.colcon_core.package_identification:_identify(bags/input1) by extensions ['colcon_meta']
+[3.730s] Level 1:colcon.colcon_core.package_identification:_identify(bags/input1) by extension 'colcon_meta'
+[3.730s] Level 1:colcon.colcon_core.package_identification:_identify(bags/input1) by extensions ['ros']
+[3.730s] Level 1:colcon.colcon_core.package_identification:_identify(bags/input1) by extension 'ros'
+[3.730s] Level 1:colcon.colcon_core.package_identification:_identify(bags/input1) by extensions ['cmake', 'python']
+[3.730s] Level 1:colcon.colcon_core.package_identification:_identify(bags/input1) by extension 'cmake'
+[3.730s] Level 1:colcon.colcon_core.package_identification:_identify(bags/input1) by extension 'python'
+[3.730s] Level 1:colcon.colcon_core.package_identification:_identify(bags/input1) by extensions ['python_setup_py']
+[3.730s] Level 1:colcon.colcon_core.package_identification:_identify(bags/input1) by extension 'python_setup_py'
+[3.731s] Level 1:colcon.colcon_core.package_identification:_identify(bags/input2) by extensions ['ignore', 'ignore_ament_install']
+[3.731s] Level 1:colcon.colcon_core.package_identification:_identify(bags/input2) by extension 'ignore'
+[3.731s] Level 1:colcon.colcon_core.package_identification:_identify(bags/input2) by extension 'ignore_ament_install'
+[3.731s] Level 1:colcon.colcon_core.package_identification:_identify(bags/input2) by extensions ['colcon_pkg']
+[3.731s] Level 1:colcon.colcon_core.package_identification:_identify(bags/input2) by extension 'colcon_pkg'
+[3.731s] Level 1:colcon.colcon_core.package_identification:_identify(bags/input2) by extensions ['colcon_meta']
+[3.731s] Level 1:colcon.colcon_core.package_identification:_identify(bags/input2) by extension 'colcon_meta'
+[3.731s] Level 1:colcon.colcon_core.package_identification:_identify(bags/input2) by extensions ['ros']
+[3.731s] Level 1:colcon.colcon_core.package_identification:_identify(bags/input2) by extension 'ros'
+[3.732s] Level 1:colcon.colcon_core.package_identification:_identify(bags/input2) by extensions ['cmake', 'python']
+[3.732s] Level 1:colcon.colcon_core.package_identification:_identify(bags/input2) by extension 'cmake'
+[3.732s] Level 1:colcon.colcon_core.package_identification:_identify(bags/input2) by extension 'python'
+[3.732s] Level 1:colcon.colcon_core.package_identification:_identify(bags/input2) by extensions ['python_setup_py']
+[3.732s] Level 1:colcon.colcon_core.package_identification:_identify(bags/input2) by extension 'python_setup_py'
+[3.732s] Level 1:colcon.colcon_core.package_identification:_identify(bags/input3) by extensions ['ignore', 'ignore_ament_install']
+[3.732s] Level 1:colcon.colcon_core.package_identification:_identify(bags/input3) by extension 'ignore'
+[3.732s] Level 1:colcon.colcon_core.package_identification:_identify(bags/input3) by extension 'ignore_ament_install'
+[3.733s] Level 1:colcon.colcon_core.package_identification:_identify(bags/input3) by extensions ['colcon_pkg']
+[3.733s] Level 1:colcon.colcon_core.package_identification:_identify(bags/input3) by extension 'colcon_pkg'
+[3.733s] Level 1:colcon.colcon_core.package_identification:_identify(bags/input3) by extensions ['colcon_meta']
+[3.733s] Level 1:colcon.colcon_core.package_identification:_identify(bags/input3) by extension 'colcon_meta'
+[3.733s] Level 1:colcon.colcon_core.package_identification:_identify(bags/input3) by extensions ['ros']
+[3.733s] Level 1:colcon.colcon_core.package_identification:_identify(bags/input3) by extension 'ros'
+[3.757s] Level 1:colcon.colcon_core.package_identification:_identify(bags/input3) by extensions ['cmake', 'python']
+[3.757s] Level 1:colcon.colcon_core.package_identification:_identify(bags/input3) by extension 'cmake'
+[3.757s] Level 1:colcon.colcon_core.package_identification:_identify(bags/input3) by extension 'python'
+[3.757s] Level 1:colcon.colcon_core.package_identification:_identify(bags/input3) by extensions ['python_setup_py']
+[3.757s] Level 1:colcon.colcon_core.package_identification:_identify(bags/input3) by extension 'python_setup_py'
+[3.757s] Level 1:colcon.colcon_core.package_identification:_identify(bags/input4) by extensions ['ignore', 'ignore_ament_install']
+[3.757s] Level 1:colcon.colcon_core.package_identification:_identify(bags/input4) by extension 'ignore'
+[3.757s] Level 1:colcon.colcon_core.package_identification:_identify(bags/input4) by extension 'ignore_ament_install'
+[3.757s] Level 1:colcon.colcon_core.package_identification:_identify(bags/input4) by extensions ['colcon_pkg']
+[3.757s] Level 1:colcon.colcon_core.package_identification:_identify(bags/input4) by extension 'colcon_pkg'
+[3.758s] Level 1:colcon.colcon_core.package_identification:_identify(bags/input4) by extensions ['colcon_meta']
+[3.758s] Level 1:colcon.colcon_core.package_identification:_identify(bags/input4) by extension 'colcon_meta'
+[3.758s] Level 1:colcon.colcon_core.package_identification:_identify(bags/input4) by extensions ['ros']
+[3.758s] Level 1:colcon.colcon_core.package_identification:_identify(bags/input4) by extension 'ros'
+[3.758s] Level 1:colcon.colcon_core.package_identification:_identify(bags/input4) by extensions ['cmake', 'python']
+[3.758s] Level 1:colcon.colcon_core.package_identification:_identify(bags/input4) by extension 'cmake'
+[3.758s] Level 1:colcon.colcon_core.package_identification:_identify(bags/input4) by extension 'python'
+[3.758s] Level 1:colcon.colcon_core.package_identification:_identify(bags/input4) by extensions ['python_setup_py']
+[3.758s] Level 1:colcon.colcon_core.package_identification:_identify(bags/input4) by extension 'python_setup_py'
+[3.758s] Level 1:colcon.colcon_core.package_identification:_identify(bags/input5) by extensions ['ignore', 'ignore_ament_install']
+[3.758s] Level 1:colcon.colcon_core.package_identification:_identify(bags/input5) by extension 'ignore'
+[3.758s] Level 1:colcon.colcon_core.package_identification:_identify(bags/input5) by extension 'ignore_ament_install'
+[3.758s] Level 1:colcon.colcon_core.package_identification:_identify(bags/input5) by extensions ['colcon_pkg']
+[3.758s] Level 1:colcon.colcon_core.package_identification:_identify(bags/input5) by extension 'colcon_pkg'
+[3.758s] Level 1:colcon.colcon_core.package_identification:_identify(bags/input5) by extensions ['colcon_meta']
+[3.759s] Level 1:colcon.colcon_core.package_identification:_identify(bags/input5) by extension 'colcon_meta'
+[3.759s] Level 1:colcon.colcon_core.package_identification:_identify(bags/input5) by extensions ['ros']
+[3.759s] Level 1:colcon.colcon_core.package_identification:_identify(bags/input5) by extension 'ros'
+[3.759s] Level 1:colcon.colcon_core.package_identification:_identify(bags/input5) by extensions ['cmake', 'python']
+[3.759s] Level 1:colcon.colcon_core.package_identification:_identify(bags/input5) by extension 'cmake'
+[3.759s] Level 1:colcon.colcon_core.package_identification:_identify(bags/input5) by extension 'python'
+[3.759s] Level 1:colcon.colcon_core.package_identification:_identify(bags/input5) by extensions ['python_setup_py']
+[3.759s] Level 1:colcon.colcon_core.package_identification:_identify(bags/input5) by extension 'python_setup_py'
+[3.759s] Level 1:colcon.colcon_core.package_identification:_identify(build) by extensions ['ignore', 'ignore_ament_install']
+[3.760s] Level 1:colcon.colcon_core.package_identification:_identify(build) by extension 'ignore'
+[3.760s] Level 1:colcon.colcon_core.package_identification:_identify(build) ignored
+[3.760s] Level 1:colcon.colcon_core.package_identification:_identify(install) by extensions ['ignore', 'ignore_ament_install']
+[3.760s] Level 1:colcon.colcon_core.package_identification:_identify(install) by extension 'ignore'
+[3.760s] Level 1:colcon.colcon_core.package_identification:_identify(install) ignored
+[3.760s] Level 1:colcon.colcon_core.package_identification:_identify(log) by extensions ['ignore', 'ignore_ament_install']
+[3.760s] Level 1:colcon.colcon_core.package_identification:_identify(log) by extension 'ignore'
+[3.760s] Level 1:colcon.colcon_core.package_identification:_identify(log) ignored
+[3.761s] Level 1:colcon.colcon_core.package_identification:_identify(p4pkg) by extensions ['ignore', 'ignore_ament_install']
+[3.761s] Level 1:colcon.colcon_core.package_identification:_identify(p4pkg) by extension 'ignore'
+[3.761s] Level 1:colcon.colcon_core.package_identification:_identify(p4pkg) by extension 'ignore_ament_install'
+[3.761s] Level 1:colcon.colcon_core.package_identification:_identify(p4pkg) by extensions ['colcon_pkg']
+[3.761s] Level 1:colcon.colcon_core.package_identification:_identify(p4pkg) by extension 'colcon_pkg'
+[3.761s] Level 1:colcon.colcon_core.package_identification:_identify(p4pkg) by extensions ['colcon_meta']
+[3.761s] Level 1:colcon.colcon_core.package_identification:_identify(p4pkg) by extension 'colcon_meta'
+[3.761s] Level 1:colcon.colcon_core.package_identification:_identify(p4pkg) by extensions ['ros']
+[3.761s] Level 1:colcon.colcon_core.package_identification:_identify(p4pkg) by extension 'ros'
+[3.780s] DEBUG:colcon.colcon_core.package_identification:Package 'p4pkg' with type 'ros.ament_python' and name 'p4pkg'
+[3.780s] Level 1:colcon.colcon_core.package_identification:_identify(teleop_twist_keyboard) by extensions ['ignore', 'ignore_ament_install']
+[3.780s] Level 1:colcon.colcon_core.package_identification:_identify(teleop_twist_keyboard) by extension 'ignore'
+[3.780s] Level 1:colcon.colcon_core.package_identification:_identify(teleop_twist_keyboard) by extension 'ignore_ament_install'
+[3.781s] Level 1:colcon.colcon_core.package_identification:_identify(teleop_twist_keyboard) by extensions ['colcon_pkg']
+[3.781s] Level 1:colcon.colcon_core.package_identification:_identify(teleop_twist_keyboard) by extension 'colcon_pkg'
+[3.781s] Level 1:colcon.colcon_core.package_identification:_identify(teleop_twist_keyboard) by extensions ['colcon_meta']
+[3.781s] Level 1:colcon.colcon_core.package_identification:_identify(teleop_twist_keyboard) by extension 'colcon_meta'
+[3.781s] Level 1:colcon.colcon_core.package_identification:_identify(teleop_twist_keyboard) by extensions ['ros']
+[3.781s] Level 1:colcon.colcon_core.package_identification:_identify(teleop_twist_keyboard) by extension 'ros'
+[3.782s] DEBUG:colcon.colcon_core.package_identification:Package 'teleop_twist_keyboard' with type 'ros.ament_python' and name 'teleop_twist_keyboard'
+[3.782s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) using defaults
+[3.782s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) discover
+[3.782s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) using defaults
+[3.782s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) discover
+[3.782s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) using defaults
+[4.131s] Level 1:colcon.colcon_core.package_discovery:discover_packages(prefix_path) check parameters
+[4.131s] Level 1:colcon.colcon_core.package_discovery:discover_packages(prefix_path) discover
+[4.271s] DEBUG:colcon.colcon_installed_package_information.package_discovery:Found 6 installed packages in /home/chase/project4/src/install
+[4.329s] DEBUG:colcon.colcon_installed_package_information.package_discovery:Found 325 installed packages in /home/chase/ros2_humble/install
+[4.332s] Level 1:colcon.colcon_core.package_discovery:discover_packages(prefix_path) using defaults
+[6.575s] Level 5:colcon.colcon_core.verb:set package 'p4pkg' build argument 'cmake_args' from command line to 'None'
+[6.578s] Level 5:colcon.colcon_core.verb:set package 'p4pkg' build argument 'cmake_target' from command line to 'None'
+[6.578s] Level 5:colcon.colcon_core.verb:set package 'p4pkg' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[6.578s] Level 5:colcon.colcon_core.verb:set package 'p4pkg' build argument 'cmake_clean_cache' from command line to 'False'
+[6.578s] Level 5:colcon.colcon_core.verb:set package 'p4pkg' build argument 'cmake_clean_first' from command line to 'False'
+[6.578s] Level 5:colcon.colcon_core.verb:set package 'p4pkg' build argument 'cmake_force_configure' from command line to 'False'
+[6.578s] Level 5:colcon.colcon_core.verb:set package 'p4pkg' build argument 'ament_cmake_args' from command line to 'None'
+[6.578s] Level 5:colcon.colcon_core.verb:set package 'p4pkg' build argument 'catkin_cmake_args' from command line to 'None'
+[6.578s] Level 5:colcon.colcon_core.verb:set package 'p4pkg' build argument 'catkin_skip_building_tests' from command line to 'False'
+[6.578s] DEBUG:colcon.colcon_core.verb:Building package 'p4pkg' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/chase/project4/src/build/p4pkg', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/chase/project4/src/install/p4pkg', 'merge_install': False, 'path': '/home/chase/project4/src/p4pkg', 'symlink_install': False, 'test_result_base': None}
+[6.584s] Level 5:colcon.colcon_core.verb:set package 'teleop_twist_keyboard' build argument 'cmake_args' from command line to 'None'
+[6.585s] Level 5:colcon.colcon_core.verb:set package 'teleop_twist_keyboard' build argument 'cmake_target' from command line to 'None'
+[6.585s] Level 5:colcon.colcon_core.verb:set package 'teleop_twist_keyboard' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[6.585s] Level 5:colcon.colcon_core.verb:set package 'teleop_twist_keyboard' build argument 'cmake_clean_cache' from command line to 'False'
+[6.585s] Level 5:colcon.colcon_core.verb:set package 'teleop_twist_keyboard' build argument 'cmake_clean_first' from command line to 'False'
+[6.585s] Level 5:colcon.colcon_core.verb:set package 'teleop_twist_keyboard' build argument 'cmake_force_configure' from command line to 'False'
+[6.585s] Level 5:colcon.colcon_core.verb:set package 'teleop_twist_keyboard' build argument 'ament_cmake_args' from command line to 'None'
+[6.585s] Level 5:colcon.colcon_core.verb:set package 'teleop_twist_keyboard' build argument 'catkin_cmake_args' from command line to 'None'
+[6.585s] Level 5:colcon.colcon_core.verb:set package 'teleop_twist_keyboard' build argument 'catkin_skip_building_tests' from command line to 'False'
+[6.585s] DEBUG:colcon.colcon_core.verb:Building package 'teleop_twist_keyboard' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/chase/project4/src/build/teleop_twist_keyboard', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/chase/project4/src/install/teleop_twist_keyboard', 'merge_install': False, 'path': '/home/chase/project4/src/teleop_twist_keyboard', 'symlink_install': False, 'test_result_base': None}
+[6.586s] INFO:colcon.colcon_core.executor:Executing jobs using 'parallel' executor
+[6.670s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:run_until_complete
+[6.671s] INFO:colcon.colcon_ros.task.ament_python.build:Building ROS package in '/home/chase/project4/src/p4pkg' with build type 'ament_python'
+[6.671s] Level 1:colcon.colcon_core.shell:create_environment_hook('p4pkg', 'ament_prefix_path')
+[6.780s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_core.shell.bat': Not used on non-Windows systems
+[6.780s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/chase/project4/src/install/p4pkg/share/p4pkg/hook/ament_prefix_path.ps1'
+[6.785s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/chase/project4/src/install/p4pkg/share/p4pkg/hook/ament_prefix_path.dsv'
+[6.807s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/chase/project4/src/install/p4pkg/share/p4pkg/hook/ament_prefix_path.sh'
+[6.821s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[6.821s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[12.316s] INFO:colcon.colcon_core.task.python.build:Building Python package in '/home/chase/project4/src/p4pkg'
+[12.320s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[12.320s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[19.202s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/chase/project4/src/p4pkg': PYTHONPATH=/home/chase/project4/src/build/p4pkg/prefix_override:/home/chase/project4/src/install/p4pkg/lib/python3.8/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py egg_info --egg-base ../build/p4pkg build --build-base /home/chase/project4/src/build/p4pkg/build install --record /home/chase/project4/src/build/p4pkg/install.log --single-version-externally-managed
+[26.216s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/chase/project4/src/p4pkg' returned '0': PYTHONPATH=/home/chase/project4/src/build/p4pkg/prefix_override:/home/chase/project4/src/install/p4pkg/lib/python3.8/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py egg_info --egg-base ../build/p4pkg build --build-base /home/chase/project4/src/build/p4pkg/build install --record /home/chase/project4/src/build/p4pkg/install.log --single-version-externally-managed
+[26.272s] Level 1:colcon.colcon_core.environment:checking '/home/chase/project4/src/install/p4pkg' for CMake module files
+[26.273s] Level 1:colcon.colcon_core.environment:checking '/home/chase/project4/src/install/p4pkg' for CMake config files
+[26.274s] Level 1:colcon.colcon_core.environment:checking '/home/chase/project4/src/install/p4pkg/lib'
+[26.274s] Level 1:colcon.colcon_core.environment:checking '/home/chase/project4/src/install/p4pkg/bin'
+[26.274s] Level 1:colcon.colcon_core.environment:checking '/home/chase/project4/src/install/p4pkg/lib/pkgconfig/p4pkg.pc'
+[26.275s] Level 1:colcon.colcon_core.environment:checking '/home/chase/project4/src/install/p4pkg/lib/python3.8/site-packages'
+[26.275s] Level 1:colcon.colcon_core.shell:create_environment_hook('p4pkg', 'pythonpath')
+[26.277s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/chase/project4/src/install/p4pkg/share/p4pkg/hook/pythonpath.ps1'
+[26.301s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/chase/project4/src/install/p4pkg/share/p4pkg/hook/pythonpath.dsv'
+[26.305s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/chase/project4/src/install/p4pkg/share/p4pkg/hook/pythonpath.sh'
+[26.314s] Level 1:colcon.colcon_core.environment:checking '/home/chase/project4/src/install/p4pkg/bin'
+[26.314s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(p4pkg)
+[26.356s] INFO:colcon.colcon_core.shell:Creating package script '/home/chase/project4/src/install/p4pkg/share/p4pkg/package.ps1'
+[26.383s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/chase/project4/src/install/p4pkg/share/p4pkg/package.dsv'
+[26.397s] INFO:colcon.colcon_core.shell:Creating package script '/home/chase/project4/src/install/p4pkg/share/p4pkg/package.sh'
+[26.420s] INFO:colcon.colcon_core.shell:Creating package script '/home/chase/project4/src/install/p4pkg/share/p4pkg/package.bash'
+[26.424s] INFO:colcon.colcon_core.shell:Creating package script '/home/chase/project4/src/install/p4pkg/share/p4pkg/package.zsh'
+[26.432s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/chase/project4/src/install/p4pkg/share/colcon-core/packages/p4pkg)
+[26.443s] INFO:colcon.colcon_ros.task.ament_python.build:Building ROS package in '/home/chase/project4/src/teleop_twist_keyboard' with build type 'ament_python'
+[26.443s] Level 1:colcon.colcon_core.shell:create_environment_hook('teleop_twist_keyboard', 'ament_prefix_path')
+[26.446s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/chase/project4/src/install/teleop_twist_keyboard/share/teleop_twist_keyboard/hook/ament_prefix_path.ps1'
+[26.473s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/chase/project4/src/install/teleop_twist_keyboard/share/teleop_twist_keyboard/hook/ament_prefix_path.dsv'
+[26.485s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/chase/project4/src/install/teleop_twist_keyboard/share/teleop_twist_keyboard/hook/ament_prefix_path.sh'
+[26.489s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[26.489s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[32.237s] INFO:colcon.colcon_core.task.python.build:Building Python package in '/home/chase/project4/src/teleop_twist_keyboard'
+[32.252s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[32.263s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[39.295s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/chase/project4/src/teleop_twist_keyboard': PYTHONPATH=/home/chase/project4/src/build/teleop_twist_keyboard/prefix_override:/home/chase/project4/src/install/teleop_twist_keyboard/lib/python3.8/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py egg_info --egg-base ../build/teleop_twist_keyboard build --build-base /home/chase/project4/src/build/teleop_twist_keyboard/build install --record /home/chase/project4/src/build/teleop_twist_keyboard/install.log --single-version-externally-managed
+[45.266s] Level 1:colcon.colcon_core.environment:checking '/home/chase/project4/src/install/teleop_twist_keyboard' for CMake module files
+[45.266s] Level 1:colcon.colcon_core.environment:checking '/home/chase/project4/src/install/teleop_twist_keyboard' for CMake config files
+[45.267s] Level 1:colcon.colcon_core.environment:checking '/home/chase/project4/src/install/teleop_twist_keyboard/lib'
+[45.267s] Level 1:colcon.colcon_core.environment:checking '/home/chase/project4/src/install/teleop_twist_keyboard/bin'
+[45.267s] Level 1:colcon.colcon_core.environment:checking '/home/chase/project4/src/install/teleop_twist_keyboard/lib/pkgconfig/teleop_twist_keyboard.pc'
+[45.268s] Level 1:colcon.colcon_core.environment:checking '/home/chase/project4/src/install/teleop_twist_keyboard/lib/python3.8/site-packages'
+[45.268s] Level 1:colcon.colcon_core.shell:create_environment_hook('teleop_twist_keyboard', 'pythonpath')
+[45.300s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/chase/project4/src/install/teleop_twist_keyboard/share/teleop_twist_keyboard/hook/pythonpath.ps1'
+[45.301s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/chase/project4/src/teleop_twist_keyboard' returned '0': PYTHONPATH=/home/chase/project4/src/build/teleop_twist_keyboard/prefix_override:/home/chase/project4/src/install/teleop_twist_keyboard/lib/python3.8/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py egg_info --egg-base ../build/teleop_twist_keyboard build --build-base /home/chase/project4/src/build/teleop_twist_keyboard/build install --record /home/chase/project4/src/build/teleop_twist_keyboard/install.log --single-version-externally-managed
+[45.312s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/chase/project4/src/install/teleop_twist_keyboard/share/teleop_twist_keyboard/hook/pythonpath.dsv'
+[45.313s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/chase/project4/src/install/teleop_twist_keyboard/share/teleop_twist_keyboard/hook/pythonpath.sh'
+[45.324s] Level 1:colcon.colcon_core.environment:checking '/home/chase/project4/src/install/teleop_twist_keyboard/bin'
+[45.324s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(teleop_twist_keyboard)
+[45.329s] INFO:colcon.colcon_core.shell:Creating package script '/home/chase/project4/src/install/teleop_twist_keyboard/share/teleop_twist_keyboard/package.ps1'
+[45.342s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/chase/project4/src/install/teleop_twist_keyboard/share/teleop_twist_keyboard/package.dsv'
+[45.354s] INFO:colcon.colcon_core.shell:Creating package script '/home/chase/project4/src/install/teleop_twist_keyboard/share/teleop_twist_keyboard/package.sh'
+[45.369s] INFO:colcon.colcon_core.shell:Creating package script '/home/chase/project4/src/install/teleop_twist_keyboard/share/teleop_twist_keyboard/package.bash'
+[45.373s] INFO:colcon.colcon_core.shell:Creating package script '/home/chase/project4/src/install/teleop_twist_keyboard/share/teleop_twist_keyboard/package.zsh'
+[45.375s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/chase/project4/src/install/teleop_twist_keyboard/share/colcon-core/packages/teleop_twist_keyboard)
+[45.397s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:closing loop
+[45.397s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:loop closed
+[45.397s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:run_until_complete finished with '0'
+[45.398s] DEBUG:colcon.colcon_core.event_reactor:joining thread
+[45.472s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_notification.desktop_notification.terminal_notifier': Not used on non-Darwin systems
+[45.472s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_notification.desktop_notification.win32': Not used on non-Windows systems
+[45.472s] INFO:colcon.colcon_notification.desktop_notification:Sending desktop notification using 'notify2'
+[45.548s] DEBUG:colcon.colcon_core.event_reactor:joined thread
+[45.551s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/chase/project4/src/install/local_setup.ps1'
+[45.566s] INFO:colcon.colcon_core.shell:Creating prefix util module '/home/chase/project4/src/install/_local_setup_util_ps1.py'
+[45.593s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/chase/project4/src/install/setup.ps1'
+[45.664s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/chase/project4/src/install/local_setup.sh'
+[45.666s] INFO:colcon.colcon_core.shell:Creating prefix util module '/home/chase/project4/src/install/_local_setup_util_sh.py'
+[45.668s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/chase/project4/src/install/setup.sh'
+[45.730s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/chase/project4/src/install/local_setup.bash'
+[45.738s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/chase/project4/src/install/setup.bash'
+[45.832s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/chase/project4/src/install/local_setup.zsh'
+[45.844s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/chase/project4/src/install/setup.zsh'

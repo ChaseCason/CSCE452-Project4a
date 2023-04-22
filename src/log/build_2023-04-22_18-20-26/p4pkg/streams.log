@@ -1,0 +1,29 @@
+[18.263s] Invoking command in '/home/chase/project4/src/p4pkg': PYTHONPATH=/home/chase/project4/src/build/p4pkg/prefix_override:/home/chase/project4/src/install/p4pkg/lib/python3.8/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py egg_info --egg-base ../build/p4pkg build --build-base /home/chase/project4/src/build/p4pkg/build install --record /home/chase/project4/src/build/p4pkg/install.log --single-version-externally-managed
+[24.697s] running egg_info
+[24.698s] writing ../build/p4pkg/p4pkg.egg-info/PKG-INFO
+[24.708s] writing dependency_links to ../build/p4pkg/p4pkg.egg-info/dependency_links.txt
+[24.722s] writing entry points to ../build/p4pkg/p4pkg.egg-info/entry_points.txt
+[24.724s] writing requirements to ../build/p4pkg/p4pkg.egg-info/requires.txt
+[24.743s] writing top-level names to ../build/p4pkg/p4pkg.egg-info/top_level.txt
+[25.158s] reading manifest file '../build/p4pkg/p4pkg.egg-info/SOURCES.txt'
+[25.170s] writing manifest file '../build/p4pkg/p4pkg.egg-info/SOURCES.txt'
+[25.178s] running build
+[25.178s] running build_py
+[25.190s] copying p4pkg/navigation.py -> /home/chase/project4/src/build/p4pkg/build/lib/p4pkg
+[25.190s] copying p4pkg/velocity.py -> /home/chase/project4/src/build/p4pkg/build/lib/p4pkg
+[25.207s] running install
+[25.222s] running install_lib
+[25.228s] copying /home/chase/project4/src/build/p4pkg/build/lib/p4pkg/navigation.py -> /home/chase/project4/src/install/p4pkg/lib/python3.8/site-packages/p4pkg
+[25.241s] copying /home/chase/project4/src/build/p4pkg/build/lib/p4pkg/velocity.py -> /home/chase/project4/src/install/p4pkg/lib/python3.8/site-packages/p4pkg
+[25.254s] byte-compiling /home/chase/project4/src/install/p4pkg/lib/python3.8/site-packages/p4pkg/navigation.py to navigation.cpython-38.pyc
+[25.266s] byte-compiling /home/chase/project4/src/install/p4pkg/lib/python3.8/site-packages/p4pkg/velocity.py to velocity.cpython-38.pyc
+[25.278s] running install_data
+[25.285s] running install_egg_info
+[25.315s] removing '/home/chase/project4/src/install/p4pkg/lib/python3.8/site-packages/p4pkg-0.0.0-py3.8.egg-info' (and everything under it)
+[25.320s] Copying ../build/p4pkg/p4pkg.egg-info to /home/chase/project4/src/install/p4pkg/lib/python3.8/site-packages/p4pkg-0.0.0-py3.8.egg-info
+[25.329s] running install_scripts
+[25.476s] Installing navigation script to /home/chase/project4/src/install/p4pkg/lib/p4pkg
+[25.490s] Installing simulator script to /home/chase/project4/src/install/p4pkg/lib/p4pkg
+[25.498s] Installing velocity script to /home/chase/project4/src/install/p4pkg/lib/p4pkg
+[25.502s] writing list of installed files to '/home/chase/project4/src/build/p4pkg/install.log'
+[25.602s] Invoked command in '/home/chase/project4/src/p4pkg' returned '0': PYTHONPATH=/home/chase/project4/src/build/p4pkg/prefix_override:/home/chase/project4/src/install/p4pkg/lib/python3.8/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py egg_info --egg-base ../build/p4pkg build --build-base /home/chase/project4/src/build/p4pkg/build install --record /home/chase/project4/src/build/p4pkg/install.log --single-version-externally-managed

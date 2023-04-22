@@ -36,15 +36,26 @@ class Velocity(Node):
         vr.data = (2*v + w *l) / 2 
         vl.data = (2*v - w*l) / 2
 
-        self.vlPublisher(vl)
-        self.vrPublisher(vr)
+        self.vlPublisher.publish(vl)
+        self.vrPublisher.publish(vr)
 
 
 def main(args=None):
     rclpy.init(args=args)
-    sim = ()
+    vel = Velocity()
 
     try:
-        rclpy.spin(sim)
+        rclpy.spin(vel)
     except KeyboardInterrupt:
         pass
+
+
+    vel.destroy_node()
+    rclpy.shutdown()
+
+if __name__ == '__main__':
+    main()
+
+
+
+
