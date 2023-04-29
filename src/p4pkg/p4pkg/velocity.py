@@ -27,24 +27,35 @@ class Velocity(Node):
         self.velocitySubscriber = self.create_subscription(Twist, "cmd_vel", self.velocity_callback, 10)
         self.vlPublisher = self.create_publisher(Float64, 'vl', 10)
         self.vrPublisher = self.create_publisher(Float64, 'vr', 10)
+        self.robot = load_disc_robot("normal.robot")
+        self.l = self.robot['wheels']['distance'] 
     def velocity_callback(self,msg):
         v = msg.linear.x
         w = msg.angular.z
-        l = 2
+        l = self.l
         vr = Float64()
         vl = Float64()
         vr.data = (2*v + w *l) / 2 
         vl.data = (2*v - w*l) / 2
 
-        self.vlPublisher(vl)
-        self.vrPublisher(vr)
+        #print('vel',vr,vl)
+        self.vrPublisher.publish(vr)
+        self.vlPublisher.publish(vl)
+        
+
 
 
 def main(args=None):
     rclpy.init(args=args)
-    sim = ()
+    vel = Velocity()
 
     try:
-        rclpy.spin(sim)
+        rclpy.spin(vel)
     except KeyboardInterrupt:
         pass
+
+    vel.destroy_node()
+    rclpy.shutdown()
+
+if __name__ == '__main__':
+    main()

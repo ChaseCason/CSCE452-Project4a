@@ -15,6 +15,8 @@ import math
 import numpy as np
 import random
 
+import message_filters as mf
+
 #https://docs.ros.org/en/galactic/Tutorials/Intermediate/Tf2/Writing-A-Tf2-Broadcaster-Py.html
 def quaternion_from_euler(ai, aj, ak):
     ai /= 2.0
@@ -56,48 +58,59 @@ class Simulator(Node):
         self.base_link_broadcast.sendTransform(self.base_link)
 
     def vl_callback(self, msg):
-        self.vl = msg.data * self.right_wheel_error
+        self.vl = msg.data * self.left_wheel_error
+        self.left_counter += 1
         self.update_position()
 
     def vr_callback(self, msg):
-        self.vr = msg.data * self.left_wheel_error
+        self.vr = msg.data * self.right_wheel_error
+        self.right_counter += 1
         self.update_position()
 
     def update_position(self):
-        dt =0.1 # time step
-        v = (self.vr + self.vl) / 2 #vel
-        w = (self.vr - self.vl) / self.l #angular vel
+        if self.vr is not None and self.vl is not None:       
+            dt = 1 # time step
+            v = (self.vr + self.vl) / 2 #vel
+            w = (self.vr - self.vl) / self.l #angular vel
+            #print(self.vr, self.vl)
+            dx = v * dt * math.cos(self.theta) 
+            dy = v * dt * math.sin(self.theta)
+            dtheta = w * dt
 
-        dx = v * dt * math.cos(self.theta) 
-        dy = v * dt * math.sin(self.theta)
-        dtheta = w * dt
+            colliding = False
+            #Center x and y in grid coordinates
+            center_x = (self.x/self.occupancyGridMsg.info.resolution)
+            center_y = (self.y/self.occupancyGridMsg.info.resolution)
+            circle_rads = self.rad / self.occupancyGridMsg.info.resolution
+            for angle in range(0,361, 4):
+                curr_x = center_x + circle_rads * math.cos(math.radians(angle))
+                curr_y = center_y + circle_rads * math.sin(math.radians(angle))
+                if self.occupancyGridMsg.data[int(curr_y) * self.occupancyGridMsg.info.width + int(curr_x)] == 100:
+                    colliding = True
+                                
+            if colliding:
+                print('collision')
+                self.x = self.prev_x
+                self.y = self.prev_y
+            else:
+                self.prev_x = self.x
+                self.prev_y = self.y
+                self.x += dx * self.occupancyGridMsg.info.resolution
+                self.y += dy * self.occupancyGridMsg.info.resolution
 
-        colliding = False
-        #Center x and y in grid coordinates
-        center_x = (self.x/self.occupancyGridMsg.info.resolution)
-        center_y = (self.y/self.occupancyGridMsg.info.resolution)
-        circle_rads = self.rad / self.occupancyGridMsg.info.resolution
-        for angle in range(0,361, 4):
-            curr_x = center_x + circle_rads * math.cos(math.radians(angle))
-            curr_y = center_y + circle_rads * math.sin(math.radians(angle))
-            if self.occupancyGridMsg.data[int(curr_y) * self.occupancyGridMsg.info.width + int(curr_x)] == 100:
-                colliding = True
-                             
-        if colliding:
-            self.x = self.prev_x
-            self.y = self.prev_y
-        else:
-            self.prev_x = self.x
-            self.prev_y = self.y
-            self.x += dx * self.occupancyGridMsg.info.resolution
-            self.y += dy * self.occupancyGridMsg.info.resolution
-
-        self.theta += dtheta
-        
-        self.update_transforms()
+            self.theta += dtheta
+            
+            self.update_transforms()
+            self.vl = None
+            self.vr = None
 
     def __init__(self):
         super().__init__('simulator')
+
+        self.left_counter = 0
+        self.right_counter = 0
+        self.vl = None
+        self.vr = None
 
         self.robot = load_disc_robot("normal.robot")
         self.l = self.robot['wheels']['distance']  # distance between robot's wheels
@@ -113,15 +126,13 @@ class Simulator(Node):
         self.error = self.robot['laser']['error_variance']
         self.fail_prob = self.robot['laser']['fail_probability']
 
-        self.world = read_world('open.world')  # tuple (occupancyGridMsg, pose)
+        self.world = read_world('cave.world')  # tuple (occupancyGridMsg, pose)
         self.occupancyGridMsg = self.world[0]
         self.initialPosition = self.world[1]
 
         self.x = self.initialPosition[0]
         self.y = self.initialPosition[1]
         self.theta = self.initialPosition[2]
-        self.vl = 0.0
-        self.vr = 0.0
         self.prev_x = self.x
         self.prev_y = self.y
 
