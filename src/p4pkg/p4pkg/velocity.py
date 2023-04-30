@@ -16,11 +16,6 @@ import math
 import numpy as np
 import random
 
-
-
-
-
-
 class Velocity(Node):
     def __init__(self):
         super().__init__('velocity')
@@ -38,12 +33,8 @@ class Velocity(Node):
         vr.data = (2*v + w *l) / 2 
         vl.data = (2*v - w*l) / 2
 
-        #print('vel',vr,vl)
         self.vrPublisher.publish(vr)
         self.vlPublisher.publish(vl)
-        
-
-
 
 def main(args=None):
     rclpy.init(args=args)

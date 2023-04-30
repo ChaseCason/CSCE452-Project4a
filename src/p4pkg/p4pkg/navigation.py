@@ -11,7 +11,7 @@ from nav_msgs.msg import OccupancyGrid
 import math
 import numpy as np
 import random
-from disc_robot import *
+from p4pkg.disc_robot import *
 
 
 class Navigation(Node):
@@ -24,12 +24,13 @@ class Navigation(Node):
         self.robot = load_disc_robot("normal.robot")
         self.rad = self.robot['body']['radius']
 
+        #Create list of points on the robot to check for collisions
         self.circle_list = []
-        for angle_degrees in range(0, 181, 5):
-            angle_radians = math.radians(angle_degrees)
+        for angle in range(0, 181, 5):
+            rads = math.radians(angle)
 
-            x = self.rad * math.cos(angle_radians)
-            y = self.rad * math.sin(angle_radians)
+            x = self.rad * math.cos(rads)
+            y = self.rad * math.sin(rads)
 
             self.circle_list.append((x, y))
 
@@ -41,15 +42,14 @@ class Navigation(Node):
 
         vel = gm.Twist()
 
-        straight_angle_index = int(abs(angle_min) / angle_inc)
-        # left_index = int((math.pi/2) - angle_min / angle_inc)
-        # right_index = int((-1 * math.pi/2) - angle_min / angle_inc)
         goStraight = True
         turnLeft = False
         turnRight = False
 
-        velocity = .1
+        velocity = .3
         radius = self.rad
+
+        #Collision Detection
         for i in range(len(ranges)):
             # Get current range
             r = ranges[i]
@@ -65,45 +65,24 @@ class Navigation(Node):
                     future_y = point[1] + velocity
                     if future_y >= ydist_to_obstacle and future_x >= xdist_to_obstacle:
                         goStraight = False
+                        if point[0] < 0:
+                            turnRight = True
+                        else:
+                            turnLeft = True
 
-            # Step 1: Calculate X and Y
-            # xVal = radius * math.sin(abs(theta))
-            # yVal = radius * math.cos(abs(theta))
 
-            # # Step 2: Calculate future X Y
-            # newX = xVal + vel * math.cos(theta)
-            # newY = yVal + vel * math.sin(theta)
-            # # Step 3: Create a Vector From x, y to newX, newY
-            # xToNew = (newX, newY) - (xVal, yVal)
-            # # Step 4: Find the X and Y of the circle's origin based on the laser
-            # circleX = -1.0 * (radius * 0.5 * math.cos(theta))
-            # circleY = -1.0 * (radius * 0.5 * math.sin(theta))
-            # # Step 5: Create a vector from circle origin to the newX and newY
-            # circleToNew = (newX, newY) - (circleX, circleY)
-            # Step 6: Project the origin -> new onto anglexy -> new
-
-            # Step 7: Compare the Distances, if we find that Origin is longer then choose the next highest angle, otherwise move forward
-
-            if ranges[i] < .29 and i != straight_angle_index:
-                if i > straight_angle_index:
-                    turnRight = True
-                else:
-                    turnLeft = True
-
-                goStraight = False
-
-        if goStraight and (ranges[straight_angle_index] > .3 or math.isinf(ranges[straight_angle_index]) or math.isnan(ranges[straight_angle_index])):
+        if goStraight:
             vel.linear.x = velocity
             vel.angular.z = 0.0
         elif math.isnan(ranges[len(ranges)-1]) or math.isnan(ranges[0]):
             pass
         else:
-            if turnRight or ranges[0] > ranges[len(ranges)-1]:
+            if (turnRight and not turnLeft) or ranges[0] > ranges[len(ranges)-1]:
                 # turn right
-                vel.angular.z = -1.57
+                vel.angular.z = -1.57/2
             else:
                 # turn left
-                vel.angular.z = 1.57
+                vel.angular.z = 1.57/2
 
         self.velPublisher.publish(vel)
 
